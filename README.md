@@ -5,11 +5,15 @@ About time I wrote one of these:
 
 Examples:
 
- * Input: Catcher in the Rye vs. The Metamorphosis Essay, 100 words.
+ * Catcher in the Rye vs. The Metamorphosis Essay, 100 words.
 
 > at the hands of his younger brother, Allie, to leukemia. When Allie dies, Holden smashes “all the goddam horse” but chooses not to do anything about it (Salinger 211). Holden has an unreasonable desire to be the catcher in the Rye, written by Franz Kafka, and The Catcher in the Rye, written by Franz Kafka, and The Catcher in the book, Gregor appreciates “the goodness of [Grete’s] heart,” as Grete is the one caring for Gregor, but she eventually, like her parents, abandons him, Gregor decides that “he would have to disappear” (Kafka 54). Because of a lack of familial
 
 > Holden to collect himself psychologically after Allie’s death, whereas Grete’s rejection harms Gregor further by not giving him a psychological outlet to his trauma. While both Holden and Gregor are rejected by their love of each other; something Gregor lacks. With Phoebe, Holden realizes that he had turned into a vermin, he shoves Gregor back into his room and shuts the door (Kafka 19-20). The doors symbolize Gregor’s rejection by his parents. Holden’s parents do not care about him. When Allie dies, Holden smashes “all the goddam windows with [his] fist” (Salinger 39). The use of dialogue when Gregor is  
+
+ * South Asia Exam Study Guide.
+
+> Mauryan Empire (322-184 BC): The empire started by Chandragupta 1. Ended when government weakened with invasions from the north who brought agriculture. They spoke Sanskrit and recited the Vedas, which were eventually written.
 
  * Input: Assault Cube Reloaded source code: Server.cpp:
  
