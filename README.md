@@ -15,11 +15,20 @@ Examples:
 
 > Mauryan Empire (322-184 BC): The empire started by Chandragupta 1. Ended when government weakened with invasions from the north who brought agriculture. They spoke Sanskrit and recited the Vedas, which were eventually written.
 
- * Input: Assault Cube Reloaded source code: Server.cpp:
+ * Huck Finn, full text.
 
+> "Cain't; I hain't hearn 'bout none un um,
+skasely, but ole King Sollermun, onless you counts dem kings dat's in a
+pack er k'yards.  How is
+servants treated in England?  Do you
+reckon that 'll make trouble next morning; because, of course, she
+prob'bly hain't got but one preacher to a red flann'l one till I was
+used to it.
+
+ * Assault Cube Reloaded source code: Server.cpp:
+ 
 ```C
-
-cl.state.lastdeath = gamemillis;
+ cl.state.lastdeath = gamemillis;
 
 // team points
 int earnedpts = killpoints(target, actor, gun, style);
