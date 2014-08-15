@@ -65,7 +65,6 @@ public class Markov {
         String text = "";
         String s1;
         String s2;
-        String temp;
         
         Map<String, Integer> current = null;
             
