@@ -1,11 +1,12 @@
 package chains;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Scanner;
 
 public class Markov {
     
@@ -19,15 +20,17 @@ public class Markov {
     void initialize() throws IOException {
         chain = new HashMap<Pair, Map<String, Integer>>();
         
-        Scanner s = new Scanner(f);
+        BufferedReader r = new BufferedReader(new FileReader(f));
         
         String s1;
-        String s2 = s.next();
-        String s3 = s.next();
-        while (s.hasNext()) {
+        String s2 = next(r);
+        String s3 = next(r);
+        
+        String next;
+        while ((next=next(r)) != null) {
             s1 = s2;
             s2 = s3;
-            s3 = s.next();
+            s3 = next;
             
             Pair current = new Pair(s1, s2);
             Map<String, Integer> vals = chain.get(current);
@@ -41,6 +44,21 @@ public class Markov {
             
             chain.put(current, vals);
         }
+    }
+    
+    String next(BufferedReader r) throws IOException {
+        String ret = "";
+        int i;
+        char c;
+        
+        while ((i = r.read()) != ' ') {
+            if (i == -1)
+                return null;
+            c = (char) i;
+            ret += c;
+        }
+        
+        return ret;
     }
     
     String generate() {
@@ -78,8 +96,6 @@ public class Markov {
                 }
             }
             
-            
-            
             s2 = s1;
             s1 = next;
             
@@ -115,7 +131,7 @@ class Pair {
         
         return str1.equals(p.str1) && str2.equals(p.str2);
     }
-
+    
     @Override
     public int hashCode() {
         int hash = 7;
