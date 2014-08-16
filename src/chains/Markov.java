@@ -139,6 +139,7 @@ public class Markov {
     }
     
     public static void main(String[] args) throws IOException {
+        //Markov m = new Markov("text.txt");
         Markov m = new Markov(Jsoup.connect("http://lyrics.wikia.com/Miracle_Of_Sound").get());
         m.initialize();
         System.out.println(m.generate());
