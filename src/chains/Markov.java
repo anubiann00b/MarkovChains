@@ -1,12 +1,18 @@
 package chains;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 public class Markov {
     
@@ -15,6 +21,32 @@ public class Markov {
     
     Markov(String file) {
         f = new File(file);
+    }
+    
+    Markov(Document d) throws IOException {
+        f = new File("mos.txt");
+        BufferedWriter out = new BufferedWriter(new FileWriter(f));
+        Elements es = d.select("a[href]");
+        for (Element e : es) {
+            String url = e.attr("abs:href");
+            Document page;
+            try {
+                page = Jsoup.connect(url).get();
+                System.out.println(url);
+            } catch (Exception ex) {
+                System.out.println("Failed to get " + url + ": " + ex);
+                continue;
+            }
+            try {
+                String data = page.getElementsByClass("lyricbox").html();
+                System.out.println(data);
+                out.write(data);
+            } catch (NullPointerException ex) {
+                System.out.println(ex);
+            }
+        }
+        out.flush();
+        out.close();
     }
     
     void initialize() throws IOException {
@@ -44,6 +76,8 @@ public class Markov {
             
             chain.put(current, vals);
         }
+        
+        r.close();
     }
     
     String next(BufferedReader r) throws IOException {
@@ -70,7 +104,7 @@ public class Markov {
             
         do {
             s1 = ((Map.Entry<Pair, Map<String, Integer>>) chain.entrySet()
-                .toArray()[(int)(Math.random()*chain.size())]).getKey().str1;
+                    .toArray()[(int)(Math.random()*chain.size())]).getKey().str1;
         
             s2 = ((Map.Entry<Pair, Map<String, Integer>>) chain.entrySet()
                     .toArray()[(int)(Math.random()*chain.size())]).getKey().str1;
@@ -105,7 +139,7 @@ public class Markov {
     }
     
     public static void main(String[] args) throws IOException {
-        Markov m = new Markov("text.txt");
+        Markov m = new Markov(Jsoup.connect("http://lyrics.wikia.com/Miracle_Of_Sound").get());
         m.initialize();
         System.out.println(m.generate());
     }
